@@ -16,16 +16,17 @@ connectCloudinary()
 // middlewares
 app.use(express.json())
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "https://prescripto-weld-one.vercel.app",
-    "https://prescripto-kjdg.vercel.app",
-    "https://prescripto-doctor-appointment-booki-alpha.vercel.app",
-    "https://practofrontend-eza15fz9p-raj-kumar-guptas-projects.vercel.app",
-    "https://practofrontend-rho.vercel.app",
-    "https://prescripto-doctor-appointment-booking-platform-oq1wozejh.vercel.app"
-  ],
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    
+    // Allow any localhost or Vercel domain
+    if (origin.startsWith("http://localhost") || origin.endsWith(".vercel.app")) {
+      return callback(null, true);
+    }
+    
+    return callback(new Error("Not allowed by CORS"));
+  },
   credentials: true
 }))
 
