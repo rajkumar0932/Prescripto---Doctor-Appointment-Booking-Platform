@@ -8,6 +8,11 @@ The project is split into three working parts:
 - `admin` - the admin and doctor dashboard panel
 - `Backend_practo` - the Express and MongoDB API server
 
+## Live Deployments
+
+- **Patient Frontend Web App**: [https://practofrontend-eza15fz9p-raj-kumar-guptas-projects.vercel.app](https://practofrontend-eza15fz9p-raj-kumar-guptas-projects.vercel.app/)
+- **Admin & Doctor Panel Dashboard**: [https://prescripto-doctor-appointment-booki-alpha.vercel.app](https://prescripto-doctor-appointment-booki-alpha.vercel.app/)
+
 ## Why This Project Exists
 
 Healthcare booking apps look simple from the outside, but they need a lot of moving pieces to work well: authentication, doctor availability, appointment slots, cancellation flows, dashboards, and payments. This project brings those parts together in one practical MERN-style application.
