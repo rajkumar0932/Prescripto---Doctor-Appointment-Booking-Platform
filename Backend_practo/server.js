@@ -20,7 +20,9 @@ app.use(cors({
     "http://localhost:5173",
     "http://localhost:5174",
     "https://prescripto-weld-one.vercel.app",
-    "https://prescripto-kjdg.vercel.app"
+    "https://prescripto-kjdg.vercel.app",
+    "https://prescripto-doctor-appointment-booki-alpha.vercel.app",
+    "https://practofrontend-eza15fz9p-raj-kumar-guptas-projects.vercel.app"
   ],
   credentials: true
 }))
