@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
   },
 
   address: {
-    type: Number,
+    type: Object,
     default: {
       line1: "",
       line2: "",

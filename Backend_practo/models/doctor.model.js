@@ -42,10 +42,7 @@ const doctorSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    address: {
-      type: Number,
-      required: true,
-    },
+   address: { type: Object, required: true },
     date: {
       type: Number,
       required: true,

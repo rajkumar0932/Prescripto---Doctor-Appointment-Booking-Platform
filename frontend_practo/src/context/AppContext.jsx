@@ -1,28 +1,90 @@
-import { createContext } from "react";
-import { doctors } from "../assets/assets";
+import { createContext, useEffect, useState } from "react";
+import axios from 'axios'
+import { toast } from "react-toastify";
 
-// Create Context
-export const AppContext = createContext();
-// it creates a global container
+export const AppContext= createContext()
 
-// Provider Component
-const AppContextProvider = ({ children }) => {
+const AppContextProvider =(props)=>{
 
-  // Global state / data
-   const currencySymbol ='$'
-  const value = {
-    doctors,
-    currencySymbol
-  };
- 
+    const currencysymbol='$'
+    const backendUrl= import.meta.env.VITE_BACKEND_URL
 
-  return (
-    <AppContext.Provider value={value}>
-      {children}
-    </AppContext.Provider>
-    // any component inisde this container can access value directly
-  );
-};
-// without it we will need propdrilling
+    const getImageSrc = (image) => {
+        if (!image) return ''
+        if (image.startsWith('http') || image.startsWith('blob:') || image.startsWith('data:')) {
+            return image
+        }
+        return `data:image/png;base64,${image}`
+    }
 
-export default AppContextProvider;
+    const [doctors, setDoctors] = useState([])
+    const [token, setToken]= useState(localStorage.getItem('token')? localStorage.getItem('token'): false)
+
+    const [userData, setUserData]= useState(false)
+
+    const getDoctorData= async ()=>{
+        try {
+            
+            const {data}= await axios.get(backendUrl + '/api/doctor/list')
+            if(data.success){
+                setDoctors(data.doctors)
+            } 
+            else{
+                toast.error(data.message)
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message)
+        }
+    }
+
+    const loadUserProfileData= async ()=>{
+        try {
+            
+            const {data}= await axios.get(backendUrl + '/api/user/get-profile', {headers:{token}})
+
+            if(data.success){
+                setUserData({
+                    ...data.userData,
+                    image: getImageSrc(data.userData.image)
+                })
+            } else{
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message)
+        }
+    }
+
+    const value={
+        doctors,getDoctorData,
+        currencysymbol,
+        token, setToken,
+        backendUrl,
+        userData,setUserData,
+        loadUserProfileData,
+        getImageSrc
+    };
+
+    useEffect(()=>{
+        getDoctorData()
+    }, [])
+
+    useEffect(()=>{
+        if(token){
+            loadUserProfileData()
+        } else{
+            setUserData(false)
+        }
+    },[token])
+
+    return(
+        <AppContext.Provider value={value}>
+            {props.children}
+        </AppContext.Provider>
+    )
+}    
+
+export default AppContextProvider
