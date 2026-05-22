@@ -39,6 +39,12 @@ The all-doctors page includes a speciality filter on the left and doctor cards o
 
 ![All doctors page](docs/screenshots/all-doctors.png)
 
+### Razorpay Payment Integration
+
+The platform includes full integration with the Razorpay payment gateway, allowing patients to securely pay for their appointments online in test mode. Upon successful payment verification, the appointment status is updated automatically.
+
+![Razorpay Payment Successful](docs/screenshots/razorpay-payment.png)
+
 ### Admin Dashboard
 
 The admin dashboard gives a quick view of platform activity: total doctors, appointments, patients, and the latest bookings. It is built for quick checking rather than deep navigation.
