@@ -23,7 +23,8 @@ app.use(cors({
     "https://prescripto-kjdg.vercel.app",
     "https://prescripto-doctor-appointment-booki-alpha.vercel.app",
     "https://practofrontend-eza15fz9p-raj-kumar-guptas-projects.vercel.app",
-    "https://practofrontend-rho.vercel.app"
+    "https://practofrontend-rho.vercel.app",
+    "https://prescripto-doctor-appointment-booking-platform-oq1wozejh.vercel.app"
   ],
   credentials: true
 }))
