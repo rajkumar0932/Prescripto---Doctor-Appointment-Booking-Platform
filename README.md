@@ -10,8 +10,8 @@ The project is split into three working parts:
 
 ## Live Deployments
 
-- **Patient Frontend Web App**: [https://practofrontend-eza15fz9p-raj-kumar-guptas-projects.vercel.app](https://practofrontend-eza15fz9p-raj-kumar-guptas-projects.vercel.app/)
-- **Admin & Doctor Panel Dashboard**: [https://prescripto-doctor-appointment-booki-alpha.vercel.app](https://prescripto-doctor-appointment-booki-alpha.vercel.app/)
+- **Patient Frontend Web App**: [https://practofrontend-rho.vercel.app](https://practofrontend-rho.vercel.app/)
+- **Admin & Doctor Panel Dashboard**: [https://prescripto-doctor-appointment-booking-platform-oq1wozejh.vercel.app](https://prescripto-doctor-appointment-booking-platform-oq1wozejh.vercel.app/)
 
 ## Why This Project Exists
 
